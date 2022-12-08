@@ -1,0 +1,48 @@
+<resources>
+    <string name="parth_app_name">Event Search</string>
+    <string name="cityTxt">CITY</string>
+    <string name="clsBtn">CLOSE</string>
+    <string name="searchTxt">Search</string>
+    <string name="NoFavTxt">No favourite</string>
+    <string name="NoRecordTxt">No Record</string>
+    <string name="favTxt">Favourite</string>
+    <string name="distanceTxt">Distance(km)</string>
+    <string name="TypeCityTxt">Type in the city</string>
+    <string name="info">Info</string>
+    <string name="about">About</string>
+    <string name="snackbarToast">You removed a movie from favourite list</string>
+    <string name="undoTxt">Undo</string>
+    <string name="addToFavTxt">successfully added to faviourite list</string>
+    <string name="ticketPrice">"Ticket price: "</string>
+    <string name="ForMoreInfo">"For more info: "</string>
+    <string name="startDate">"Start Date: "</string>
+    <string name="app_name">Final Project</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title">Title</string>
+    <string name="author">Sonika Miyani</string>
+    <string name="version">Version: 1</string>
+    <string name="ok">OK</string>
+    <string name="search_btn">Search Movie</string>
+    <string name="added_txt">Added Movie List</string>
+    <string name="selected_language">English</string>
+    <string name="language">Hello</string>
+    <string name="Help_str">Help</string>
+    <string name="edittext_toast">Please enter mandatory field</string>
+    <string name="network_toast">Could not find movie details Error in network call</string>
+    <string name="movie_added_toast">Movie added to Favourites!</string>
+    <string name="movie_remove_toast">Movie removed from Favourites!</string>
+
+    <string name="dialog_txt1">1. Search Movie</string>
+    <string name="dialog_txt2">2. Click on Search Movie Button</string>
+    <string name="dialog_txt3">3. It will show seached movie on next page.</string>
+    <string name="dialog_txt4">4. Click on Fav button which add that movie in fav list</string>
+    <string name="dialog_txt5">5. On second  Click on Fav button which remove that movie in fav list.</string>
+    <string name="dialog_txt6">6. Click on ok button to exit the help menu</string>
+    <string name="soniak_app_name">Movie Information</string>
+
+
+</resources>
+

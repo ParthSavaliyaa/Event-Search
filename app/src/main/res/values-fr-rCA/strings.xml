@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cityTxt">VILLE</string>
+    <string name="clsBtn">" proche"</string>
+    <string name="searchTxt">Chercher</string>
+    <string name="favTxt">Favorite</string>
+    <string name="NoFavTxt">pas de favori</string>
+    <string name="NoRecordTxt">" aucun enregistrement"</string>
+    <string name="distanceTxt">" la distance"</string>
+    <string name="TypeCityTxt">" taper dans la ville"</string>
+    <string name="info">les renseignements</string>
+    <string name="about">" sur"</string>
+    <string name="snackbarToast">Vous avez supprimé un film de la liste des favoris</string>
+    <string name="undoTxt">" annuler"</string>
+    <string name="addToFavTxt">est ajouté avec succès à la liste des favoris</string>
+    <string name="ticketPrice">" prix du billet: "</string>
+    <string name="startDate">" Date de début: "</string>
+    <string name="ForMoreInfo">" pour plus d'informations:"</string>
+    <string name="parth_app_name">"Recherche d'événement "</string>
+    <string name="app_name">" projet final"</string>
+
+    <string name="soniak_app_name">Informations sur le film</string>
+    <string name="language">Bonjour</string>
+    <string name="title">Titre</string>
+    <string name="hello_blank_fragment">Bonjour fragment vierge</string>
+    <string name="author">Sonika Miyani</string>
+    <string name="version">Version: 1</string>
+    <string name="selected_language">french</string>
+    <string name="ok">" d'accord"</string>
+    <string name="search_btn">Rechercher un film</string>
+    <string name="added_txt">Ajout de la liste des films</string>
+    <string name="Help_str">Aider</string>
+    <string name="about_str">sur</string>
+    <string name="edittext_toast">Veuillez saisir le champ obligatoire</string>
+    <string name="network_toast">Impossible de trouver les détails du film Erreur dans l\'appel réseau</string>
+    <string name="movie_added_toast">Impossible de trouver les détails du film Erreur dans l\'appel réseau</string>
+    <string name="movie_remove_toast">Film supprimé des favoris !</string>
+
+    <string name="dialog_txt1">1. Rechercher un film.</string>
+    <string name="dialog_txt2">2. Cliquez sur le bouton Rechercher un film.</string>
+    <string name="dialog_txt3">3. Il affichera le film recherché sur la page suivante.</string>
+    <string name="dialog_txt4">4. Cliquez sur le bouton Fav qui ajoute ce film dans la liste des favoris.</string>
+    <string name="dialog_txt5">5. Le deuxième Cliquez sur le bouton Fav qui supprime ce film dans la liste des favoris.</string>
+    <string name="dialog_txt6">6. Cliquez sur le bouton ok pour quitter le menu d\'aide</string>
+
+</resources>
