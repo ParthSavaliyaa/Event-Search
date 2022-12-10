@@ -7,23 +7,27 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Rating implements Serializable, Parcelable {
+public class Sonika_Rating implements Serializable, Parcelable {
 
-    public final static Creator<Rating> CREATOR = new Creator<Rating>() {
+    public final static Creator<Sonika_Rating> CREATOR = new Creator<Sonika_Rating>() {
 
 
         @SuppressWarnings({
                 "unchecked"
         })
-        public Rating createFromParcel(android.os.Parcel in) {
-            return new Rating(in);
+        public Sonika_Rating createFromParcel(android.os.Parcel in) {
+            return new Sonika_Rating(in);
         }
 
-        public Rating[] newArray(int size) {
-            return (new Rating[size]);
+        public Sonika_Rating[] newArray(int size) {
+            return (new Sonika_Rating[size]);
         }
 
     };
+
+    public Sonika_Rating() {
+    }
+
     private final static long serialVersionUID = 1197254135480892267L;
     @SerializedName("Source")
     @Expose
@@ -32,13 +36,16 @@ public class Rating implements Serializable, Parcelable {
     @Expose
     private String value;
 
-    protected Rating(android.os.Parcel in) {
+    protected Sonika_Rating(android.os.Parcel in) {
         this.source = ((String) in.readValue((String.class.getClassLoader())));
         this.value = ((String) in.readValue((String.class.getClassLoader())));
     }
 
-    public Rating() {
+    public Sonika_Rating withValue(String value) {
+        this.value = value;
+        return this;
     }
+
 
     public String getSource() {
         return source;
@@ -48,7 +55,7 @@ public class Rating implements Serializable, Parcelable {
         this.source = source;
     }
 
-    public Rating withSource(String source) {
+    public Sonika_Rating withSource(String source) {
         this.source = source;
         return this;
     }
@@ -61,15 +68,11 @@ public class Rating implements Serializable, Parcelable {
         this.value = value;
     }
 
-    public Rating withValue(String value) {
-        this.value = value;
-        return this;
-    }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Rating.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(Sonika_Rating.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("source");
         sb.append('=');
         sb.append(((this.source == null) ? "<null>" : this.source));

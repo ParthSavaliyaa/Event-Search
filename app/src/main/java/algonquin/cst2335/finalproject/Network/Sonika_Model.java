@@ -8,28 +8,53 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
-public class Model implements Serializable, Parcelable {
+public class Sonika_Model implements Serializable, Parcelable {
 
     /**
      * model
      */
-    public final static Creator<Model> CREATOR = new Creator<Model>() {
+    public final static Creator<Sonika_Model> CREATOR = new Creator<Sonika_Model>() {
 
 
         @SuppressWarnings({
                 "unchecked"
         })
-        public Model createFromParcel(android.os.Parcel in) {
-            return new Model(in);
+        public Sonika_Model createFromParcel(android.os.Parcel in) {
+            return new Sonika_Model(in);
         }
 
-        public Model[] newArray(int size) {
-            return (new Model[size]);
+        public Sonika_Model[] newArray(int size) {
+            return (new Sonika_Model[size]);
         }
 
     };
 
-
+    protected Sonika_Model(android.os.Parcel in) {
+        this.title = ((String) in.readValue((String.class.getClassLoader())));
+        this.year = ((String) in.readValue((String.class.getClassLoader())));
+        this.rated = ((String) in.readValue((String.class.getClassLoader())));
+        this.released = ((String) in.readValue((String.class.getClassLoader())));
+        this.runtime = ((String) in.readValue((String.class.getClassLoader())));
+        this.genre = ((String) in.readValue((String.class.getClassLoader())));
+        this.director = ((String) in.readValue((String.class.getClassLoader())));
+        this.writer = ((String) in.readValue((String.class.getClassLoader())));
+        this.actors = ((String) in.readValue((String.class.getClassLoader())));
+        this.plot = ((String) in.readValue((String.class.getClassLoader())));
+        this.language = ((String) in.readValue((String.class.getClassLoader())));
+        this.country = ((String) in.readValue((String.class.getClassLoader())));
+        this.awards = ((String) in.readValue((String.class.getClassLoader())));
+        this.poster = ((String) in.readValue((String.class.getClassLoader())));
+        this.metascore = ((String) in.readValue((String.class.getClassLoader())));
+        this.imdbRating = ((String) in.readValue((String.class.getClassLoader())));
+        this.imdbVotes = ((String) in.readValue((String.class.getClassLoader())));
+        this.imdbID = ((String) in.readValue((String.class.getClassLoader())));
+        this.type = ((String) in.readValue((String.class.getClassLoader())));
+        this.dvd = ((String) in.readValue((String.class.getClassLoader())));
+        this.boxOffice = ((String) in.readValue((String.class.getClassLoader())));
+        this.production = ((String) in.readValue((String.class.getClassLoader())));
+        this.website = ((String) in.readValue((String.class.getClassLoader())));
+        this.response = ((String) in.readValue((String.class.getClassLoader())));
+    }
     private final static long serialVersionUID = 510401712578431686L;
     @SerializedName("Title")
     @Expose
@@ -58,15 +83,16 @@ public class Model implements Serializable, Parcelable {
     @SerializedName("Actors")
     @Expose
     private String actors;
-    @SerializedName("Plot")
-    @Expose
-    private String plot;
+
     @SerializedName("Language")
     @Expose
     private String language;
     @SerializedName("Country")
     @Expose
     private String country;
+    @SerializedName("imdbRating")
+    @Expose
+    private String imdbRating;
     @SerializedName("Awards")
     @Expose
     private String awards;
@@ -75,13 +101,14 @@ public class Model implements Serializable, Parcelable {
     private String poster;
     @SerializedName("Ratings")
     @Expose
-    private List<Rating> ratings = null;
+    private List<Sonika_Rating> ratings = null;
+    @SerializedName("Plot")
+    @Expose
+    private String plot;
     @SerializedName("Metascore")
     @Expose
     private String metascore;
-    @SerializedName("imdbRating")
-    @Expose
-    private String imdbRating;
+
     @SerializedName("imdbVotes")
     @Expose
     private String imdbVotes;
@@ -107,34 +134,9 @@ public class Model implements Serializable, Parcelable {
     @Expose
     private String response;
 
-    protected Model(android.os.Parcel in) {
-        this.title = ((String) in.readValue((String.class.getClassLoader())));
-        this.year = ((String) in.readValue((String.class.getClassLoader())));
-        this.rated = ((String) in.readValue((String.class.getClassLoader())));
-        this.released = ((String) in.readValue((String.class.getClassLoader())));
-        this.runtime = ((String) in.readValue((String.class.getClassLoader())));
-        this.genre = ((String) in.readValue((String.class.getClassLoader())));
-        this.director = ((String) in.readValue((String.class.getClassLoader())));
-        this.writer = ((String) in.readValue((String.class.getClassLoader())));
-        this.actors = ((String) in.readValue((String.class.getClassLoader())));
-        this.plot = ((String) in.readValue((String.class.getClassLoader())));
-        this.language = ((String) in.readValue((String.class.getClassLoader())));
-        this.country = ((String) in.readValue((String.class.getClassLoader())));
-        this.awards = ((String) in.readValue((String.class.getClassLoader())));
-        this.poster = ((String) in.readValue((String.class.getClassLoader())));
-        this.metascore = ((String) in.readValue((String.class.getClassLoader())));
-        this.imdbRating = ((String) in.readValue((String.class.getClassLoader())));
-        this.imdbVotes = ((String) in.readValue((String.class.getClassLoader())));
-        this.imdbID = ((String) in.readValue((String.class.getClassLoader())));
-        this.type = ((String) in.readValue((String.class.getClassLoader())));
-        this.dvd = ((String) in.readValue((String.class.getClassLoader())));
-        this.boxOffice = ((String) in.readValue((String.class.getClassLoader())));
-        this.production = ((String) in.readValue((String.class.getClassLoader())));
-        this.website = ((String) in.readValue((String.class.getClassLoader())));
-        this.response = ((String) in.readValue((String.class.getClassLoader())));
-    }
 
-    public Model() {
+
+    public Sonika_Model() {
     }
 
     public String getTitle() {
@@ -145,7 +147,7 @@ public class Model implements Serializable, Parcelable {
         this.title = title;
     }
 
-    public Model withTitle(String title) {
+    public Sonika_Model withTitle(String title) {
         this.title = title;
         return this;
     }
@@ -158,7 +160,7 @@ public class Model implements Serializable, Parcelable {
         this.year = year;
     }
 
-    public Model withYear(String year) {
+    public Sonika_Model withYear(String year) {
         this.year = year;
         return this;
     }
@@ -171,7 +173,7 @@ public class Model implements Serializable, Parcelable {
         this.rated = rated;
     }
 
-    public Model withRated(String rated) {
+    public Sonika_Model withRated(String rated) {
         this.rated = rated;
         return this;
     }
@@ -184,7 +186,7 @@ public class Model implements Serializable, Parcelable {
         this.released = released;
     }
 
-    public Model withReleased(String released) {
+    public Sonika_Model withReleased(String released) {
         this.released = released;
         return this;
     }
@@ -197,21 +199,8 @@ public class Model implements Serializable, Parcelable {
         this.runtime = runtime;
     }
 
-    public Model withRuntime(String runtime) {
+    public Sonika_Model withRuntime(String runtime) {
         this.runtime = runtime;
-        return this;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public Model withGenre(String genre) {
-        this.genre = genre;
         return this;
     }
 
@@ -223,10 +212,25 @@ public class Model implements Serializable, Parcelable {
         this.director = director;
     }
 
-    public Model withDirector(String director) {
+    public Sonika_Model withDirector(String director) {
         this.director = director;
         return this;
     }
+
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public Sonika_Model withGenre(String genre) {
+        this.genre = genre;
+        return this;
+    }
+
 
     public String getWriter() {
         return writer;
@@ -236,7 +240,7 @@ public class Model implements Serializable, Parcelable {
         this.writer = writer;
     }
 
-    public Model withWriter(String writer) {
+    public Sonika_Model withWriter(String writer) {
         this.writer = writer;
         return this;
     }
@@ -249,7 +253,7 @@ public class Model implements Serializable, Parcelable {
         this.actors = actors;
     }
 
-    public Model withActors(String actors) {
+    public Sonika_Model withActors(String actors) {
         this.actors = actors;
         return this;
     }
@@ -257,12 +261,19 @@ public class Model implements Serializable, Parcelable {
     public String getPlot() {
         return plot;
     }
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 
+    public Sonika_Model withLanguage(String language) {
+        this.language = language;
+        return this;
+    }
     public void setPlot(String plot) {
         this.plot = plot;
     }
 
-    public Model withPlot(String plot) {
+    public Sonika_Model withPlot(String plot) {
         this.plot = plot;
         return this;
     }
@@ -271,14 +282,7 @@ public class Model implements Serializable, Parcelable {
         return language;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
 
-    public Model withLanguage(String language) {
-        this.language = language;
-        return this;
-    }
 
     public String getCountry() {
         return country;
@@ -288,7 +292,7 @@ public class Model implements Serializable, Parcelable {
         this.country = country;
     }
 
-    public Model withCountry(String country) {
+    public Sonika_Model withCountry(String country) {
         this.country = country;
         return this;
     }
@@ -301,10 +305,6 @@ public class Model implements Serializable, Parcelable {
         this.awards = awards;
     }
 
-    public Model withAwards(String awards) {
-        this.awards = awards;
-        return this;
-    }
 
     public String getPoster() {
         return poster;
@@ -314,20 +314,20 @@ public class Model implements Serializable, Parcelable {
         this.poster = poster;
     }
 
-    public Model withPoster(String poster) {
+    public Sonika_Model withPoster(String poster) {
         this.poster = poster;
         return this;
     }
 
-    public List<Rating> getRatings() {
+    public List<Sonika_Rating> getRatings() {
         return ratings;
     }
 
-    public void setRatings(List<Rating> ratings) {
+    public void setRatings(List<Sonika_Rating> ratings) {
         this.ratings = ratings;
     }
 
-    public Model withRatings(List<Rating> ratings) {
+    public Sonika_Model withRatings(List<Sonika_Rating> ratings) {
         this.ratings = ratings;
         return this;
     }
@@ -340,7 +340,7 @@ public class Model implements Serializable, Parcelable {
         this.metascore = metascore;
     }
 
-    public Model withMetascore(String metascore) {
+    public Sonika_Model withMetascore(String metascore) {
         this.metascore = metascore;
         return this;
     }
@@ -353,7 +353,7 @@ public class Model implements Serializable, Parcelable {
         this.imdbRating = imdbRating;
     }
 
-    public Model withImdbRating(String imdbRating) {
+    public Sonika_Model withImdbRating(String imdbRating) {
         this.imdbRating = imdbRating;
         return this;
     }
@@ -366,11 +366,14 @@ public class Model implements Serializable, Parcelable {
         this.imdbVotes = imdbVotes;
     }
 
-    public Model withImdbVotes(String imdbVotes) {
+    public Sonika_Model withImdbVotes(String imdbVotes) {
         this.imdbVotes = imdbVotes;
         return this;
     }
-
+    public Sonika_Model withAwards(String awards) {
+        this.awards = awards;
+        return this;
+    }
     public String getImdbID() {
         return imdbID;
     }
@@ -379,7 +382,7 @@ public class Model implements Serializable, Parcelable {
         this.imdbID = imdbID;
     }
 
-    public Model withImdbID(String imdbID) {
+    public Sonika_Model withImdbID(String imdbID) {
         this.imdbID = imdbID;
         return this;
     }
@@ -392,7 +395,7 @@ public class Model implements Serializable, Parcelable {
         this.type = type;
     }
 
-    public Model withType(String type) {
+    public Sonika_Model withType(String type) {
         this.type = type;
         return this;
     }
@@ -405,7 +408,7 @@ public class Model implements Serializable, Parcelable {
         this.dvd = dvd;
     }
 
-    public Model withDvd(String dvd) {
+    public Sonika_Model withDvd(String dvd) {
         this.dvd = dvd;
         return this;
     }
@@ -418,7 +421,7 @@ public class Model implements Serializable, Parcelable {
         this.boxOffice = boxOffice;
     }
 
-    public Model withBoxOffice(String boxOffice) {
+    public Sonika_Model withBoxOffice(String boxOffice) {
         this.boxOffice = boxOffice;
         return this;
     }
@@ -431,7 +434,7 @@ public class Model implements Serializable, Parcelable {
         this.production = production;
     }
 
-    public Model withProduction(String production) {
+    public Sonika_Model withProduction(String production) {
         this.production = production;
         return this;
     }
@@ -444,7 +447,7 @@ public class Model implements Serializable, Parcelable {
         this.website = website;
     }
 
-    public Model withWebsite(String website) {
+    public Sonika_Model withWebsite(String website) {
         this.website = website;
         return this;
     }
@@ -457,7 +460,7 @@ public class Model implements Serializable, Parcelable {
         this.response = response;
     }
 
-    public Model withResponse(String response) {
+    public Sonika_Model withResponse(String response) {
         this.response = response;
         return this;
     }
@@ -465,7 +468,7 @@ public class Model implements Serializable, Parcelable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Model.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(Sonika_Model.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("title");
         sb.append('=');
         sb.append(((this.title == null) ? "<null>" : this.title));

@@ -25,11 +25,11 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
-import algonquin.cst2335.finalproject.Movie_Database.Movie;
-import algonquin.cst2335.finalproject.Movie_Database.MovieDAO;
-import algonquin.cst2335.finalproject.Movie_Database.MovieDataBase;
-import algonquin.cst2335.finalproject.Network.API;
-import algonquin.cst2335.finalproject.Network.Model;
+import algonquin.cst2335.finalproject.Movie_Database.Sonika_Movie;
+import algonquin.cst2335.finalproject.Movie_Database.Sonika_MovieDAO;
+import algonquin.cst2335.finalproject.Movie_Database.Sonika_MovieDataBase;
+import algonquin.cst2335.finalproject.Network.SONIKA_API;
+import algonquin.cst2335.finalproject.Network.Sonika_Model;
 import algonquin.cst2335.finalproject.databinding.SonikaActivityMainBinding;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,7 +38,7 @@ import retrofit2.Response;
 public class Sonika_Main_Activity extends AppCompatActivity {
 
     SonikaActivityMainBinding binding;
-    MovieDAO movieDAO;
+    Sonika_MovieDAO movieDAO;
     private Sonika_MovieListAdapter movieListAdapter;
 
 
@@ -61,7 +61,7 @@ public class Sonika_Main_Activity extends AppCompatActivity {
         /**
          * database fro storing the data.
          */
-        movieDAO = MovieDataBase.getInstance(this).movieDAO();
+        movieDAO = Sonika_MovieDataBase.getInstance(this).movieDAO();
 
         /**
          * set the adapter for the list of item to show.
@@ -76,7 +76,7 @@ public class Sonika_Main_Activity extends AppCompatActivity {
             @Override
             public void onItemClick(int position, View v) {
                 Intent intent = new Intent(getApplicationContext(), Sonika_MovieDetails.class);
-                Movie movie = movieDAO.getFavouriteList().get(position);
+                Sonika_Movie movie = movieDAO.getFavouriteList().get(position);
                 intent.putExtra("id", movie.getId());
                 intent.putExtra("title", movie.getTitle());
                 intent.putExtra("year", movie.getYear());
@@ -120,9 +120,9 @@ public class Sonika_Main_Activity extends AppCompatActivity {
                  * all these required field show on another activity called movieDetails.
                  */
                 if (!title.isEmpty()) {
-                    API.Factory.getInstance().listSearchedMovies(title).enqueue(new Callback<Model>() {
+                    SONIKA_API.Factory.getInstance().listSearchedMovies(title).enqueue(new Callback<Sonika_Model>() {
                         @Override
-                        public void onResponse(Call<Model> call, @NonNull Response<Model> response) {
+                        public void onResponse(Call<Sonika_Model> call, @NonNull Response<Sonika_Model> response) {
                             Intent intent = new Intent(getApplicationContext(), Sonika_MovieDetails.class);
                             intent.putExtra("title", response.body().getTitle());
                             intent.putExtra("year", response.body().getYear());
@@ -142,7 +142,7 @@ public class Sonika_Main_Activity extends AppCompatActivity {
                          * @param t throwable parameter.
                          */
                         @Override
-                        public void onFailure(Call<Model> call, Throwable t) {
+                        public void onFailure(Call<Sonika_Model> call, Throwable t) {
                             Snackbar.make(view, R.string.network_toast, Snackbar.LENGTH_LONG).show();
                         }
                     });
@@ -196,7 +196,7 @@ public class Sonika_Main_Activity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        List<Movie> moviesList = movieDAO.getFavouriteList();
+        List<Sonika_Movie> moviesList = movieDAO.getFavouriteList();
         movieListAdapter.setModelForList(moviesList);
         binding.recyclerviewSaved.setAdapter(movieListAdapter);
         SharedPreferences sh = getSharedPreferences("Shared_Pref", Context.MODE_PRIVATE);

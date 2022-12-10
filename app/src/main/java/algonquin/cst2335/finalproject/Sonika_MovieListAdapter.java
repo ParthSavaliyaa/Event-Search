@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import algonquin.cst2335.finalproject.Movie_Database.Movie;
+import algonquin.cst2335.finalproject.Movie_Database.Sonika_Movie;
 
 public class Sonika_MovieListAdapter extends RecyclerView.Adapter<Sonika_MovieListAdapter.MovieViewHolder> {
 
@@ -21,7 +21,7 @@ public class Sonika_MovieListAdapter extends RecyclerView.Adapter<Sonika_MovieLi
      * declartion of varibles
      */
     private static ClickListener mClickHandler;
-    private List<Movie> modelList = new ArrayList<>();
+    private List<Sonika_Movie> modelList = new ArrayList<>();
 
     /**
      * interface
@@ -81,7 +81,7 @@ public class Sonika_MovieListAdapter extends RecyclerView.Adapter<Sonika_MovieLi
      * @param model
      */
     @SuppressLint("NotifyDataSetChanged")
-    public void setModelForList(List<Movie> model) {
+    public void setModelForList(List<Sonika_Movie> model) {
         modelList = model;
         notifyDataSetChanged();
     }

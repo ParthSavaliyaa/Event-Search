@@ -5,7 +5,29 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "movie")
-public class Movie {
+public class Sonika_Movie {
+
+
+    /**
+     * constructor
+     *
+     * @param title   title
+     * @param year    year
+     * @param rating  rating
+     * @param runtime runtime
+     * @param actors  actors
+     * @param plot    plot
+     * @param url     URL
+     */
+    public Sonika_Movie(String title, String year, String rating, String runtime, String actors, String plot, String url) {
+        this.title = title;
+        this.year = year;
+        this.rating = rating;
+        this.runtime = runtime;
+        this.actors = actors;
+        this.plot = plot;
+        this.url = url;
+    }
 
     /**
      * id is primarykey in movie table
@@ -15,13 +37,6 @@ public class Movie {
 
 
     /**
-     * @param id set the ID
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    /**
      * get ID
      *
      * @return ID
@@ -29,6 +44,15 @@ public class Movie {
     public long getId() {
         return id;
     }
+
+
+    /**
+     * @param id set the ID
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
+
 
     /**
      * @return title
@@ -45,12 +69,6 @@ public class Movie {
         return year;
     }
 
-    /**
-     * @return rating
-     */
-    public String getRating() {
-        return rating;
-    }
 
     /**
      * @return runtime
@@ -66,6 +84,12 @@ public class Movie {
         return actors;
     }
 
+    /**
+     * @return rating
+     */
+    public String getRating() {
+        return rating;
+    }
 
     /**
      * @return plot
@@ -83,11 +107,10 @@ public class Movie {
     }
 
     /**
-     * Title column in table
+     * URL column in table
      */
-    @ColumnInfo(name = "title")
-    private String title;
-
+    @ColumnInfo(name = "url")
+    private String url;
     /**
      * year column in table
      */
@@ -113,36 +136,18 @@ public class Movie {
     @ColumnInfo(name = "actors")
     private String actors;
 
+
+    /**
+     * Title column in table
+     */
+    @ColumnInfo(name = "title")
+    private String title;
+
     /**
      * plot column in table
      */
     @ColumnInfo(name = "plot")
     private String plot;
 
-    /**
-     * URL column in table
-     */
-    @ColumnInfo(name = "url")
-    private String url;
 
-    /**
-     * constructor
-     *
-     * @param title   title
-     * @param year    year
-     * @param rating  rating
-     * @param runtime runtime
-     * @param actors  actors
-     * @param plot    plot
-     * @param url     URL
-     */
-    public Movie(String title, String year, String rating, String runtime, String actors, String plot, String url) {
-        this.title = title;
-        this.year = year;
-        this.rating = rating;
-        this.runtime = runtime;
-        this.actors = actors;
-        this.plot = plot;
-        this.url = url;
-    }
 }

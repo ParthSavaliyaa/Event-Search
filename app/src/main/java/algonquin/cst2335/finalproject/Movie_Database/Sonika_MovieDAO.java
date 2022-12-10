@@ -11,41 +11,43 @@ import java.util.List;
 /**
  * This is the DAO interface which is used for insert an remove the data from database.
  */
-public interface MovieDAO {
+public interface Sonika_MovieDAO {
 
     /**
      * it will return fav list from the movie table.
      *
      * @return favouritelist
      */
-    @Query("Select * from movie")
-    List<Movie> getFavouriteList();
+    @Query("Select * from Sonika_Movie")
+    List<Sonika_Movie> getFavouriteList();
+
+
+    /**
+     * @param plot plot
+     * @return remove list which store the remove data from table
+     */
+    @Query("DELETE FROM Sonika_Movie WHERE plot = :plot")
+    int removeFavourite(String plot);
 
     /**
      * @param movie movie
      * @return insert record into movie
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long addFavourite(Movie movie);
-
-    /**
-     * @param plot plot
-     * @return remove list which store the remove data from table
-     */
-    @Query("DELETE FROM movie WHERE plot = :plot")
-    int removeFavourite(String plot);
-
-    /**
-     * remove the data from the table
-     */
-    @Query("DELETE FROM movie")
-    void delete();
+    long addFavourite(Sonika_Movie movie);
 
     /**
      * @param plot plot
      * @return specific record form table which you want from the favourite list.
      */
-    @Query("SELECT * FROM movie WHERE plot = :plot")
+    @Query("SELECT * FROM Sonika_Movie WHERE plot = :plot")
     int isDataExist(String plot);
+
+    /**
+     * remove the data from the table
+     */
+    @Query("DELETE FROM Sonika_Movie")
+    void delete();
+
 
 }

@@ -8,31 +8,30 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface API {
+public interface SONIKA_API {
     /**
      * @param title title(Movie name)
      * @return Movie Name from the API
      */
+
     @GET("/?apikey=6c9862c2")
-    Call<Model> listSearchedMovies(@Query("t") String title);
+    Call<Sonika_Model> listSearchedMovies(@Query("t") String title);
 
     /**
      * this is the case call class for API calling.
      * Used retrofit library to get the data from the API
      */
     class Factory {
-        private static API service;
+        private static SONIKA_API API_service;
 
-        public static API getInstance() {
-            if (service == null) {
-                Retrofit retrofit = new Retrofit.Builder()
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .baseUrl("https://www.omdbapi.com/")
-                        .build();
+        public static SONIKA_API getInstance() {
+            if (API_service == null) {
+                Retrofit retrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create())
+                        .baseUrl("https://www.omdbapi.com/").build();
 
-                service = retrofit.create(API.class);
+                API_service = retrofit.create(SONIKA_API.class);
             }
-            return service;
+            return API_service;
         }
     }
 }

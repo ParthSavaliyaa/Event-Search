@@ -15,9 +15,9 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
-import algonquin.cst2335.finalproject.Movie_Database.Movie;
-import algonquin.cst2335.finalproject.Movie_Database.MovieDAO;
-import algonquin.cst2335.finalproject.Movie_Database.MovieDataBase;
+import algonquin.cst2335.finalproject.Movie_Database.Sonika_Movie;
+import algonquin.cst2335.finalproject.Movie_Database.Sonika_MovieDAO;
+import algonquin.cst2335.finalproject.Movie_Database.Sonika_MovieDataBase;
 import algonquin.cst2335.finalproject.databinding.MovieDetailsBinding;
 
 public class Sonika_MovieDetails extends AppCompatActivity {
@@ -27,10 +27,10 @@ public class Sonika_MovieDetails extends AppCompatActivity {
      */
     MovieDetailsBinding binding;
     Menu fav;
-    List<Movie> favMoviesList;
+    List<Sonika_Movie> favMoviesList;
     private boolean isFavourite = false;
-    MovieDAO movieDAO;
-    private Movie movieObject;
+    Sonika_MovieDAO movieDAO;
+    private Sonika_Movie movieObject;
     private String title;
     private String year;
     private String rating;
@@ -50,7 +50,7 @@ public class Sonika_MovieDetails extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         setTitle(R.string.soniak_app_name);
-        movieDAO = MovieDataBase.getInstance(this).movieDAO();
+        movieDAO = Sonika_MovieDataBase.getInstance(this).movieDAO();
         favMoviesList = movieDAO.getFavouriteList();
 
         /**
@@ -72,7 +72,7 @@ public class Sonika_MovieDetails extends AppCompatActivity {
             plot = bundle.getString("plot");
             binding.tvPlot.setText(plot);
             url = bundle.getString("poster");
-            movieObject = new Movie(title, year, rating, runtime, actors, plot, url);
+            movieObject = new Sonika_Movie(title, year, rating, runtime, actors, plot, url);
 
             /**
              * used the glide library for load the image also piccso works same.
@@ -143,7 +143,15 @@ public class Sonika_MovieDetails extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Remove from db
+     */
+    private void removeMovieFromFav() {
+        long id = movieObject.getId();
+        int val = movieDAO.removeFavourite(movieObject.getPlot());
+        isFavourite = false;
+        updateIcon();
+    }
     /**
      * it will used for the fill the icon when user click on the add button for add the moviw into the list.
      */
@@ -155,22 +163,14 @@ public class Sonika_MovieDetails extends AppCompatActivity {
         }
     }
 
-    /**
-     * Remove from db
-     */
-    private void removeMovieFromFav() {
-        long id = movieObject.getId();
-        int val = movieDAO.removeFavourite(movieObject.getPlot());
-        isFavourite = false;
-        updateIcon();
-    }
+
 
     /**
      * Check if the entry is available in DATABASE
      *
      * @param movieObject
      */
-    private void checkIfMovieFavourited(Movie movieObject) {
+    private void checkIfMovieFavourited(Sonika_Movie movieObject) {
         long id = movieObject.getId();
 //        for(Movie x: favMoviesList) {
 //            isFavourite = Objects.equals(x.getId(), movieObject.getId());

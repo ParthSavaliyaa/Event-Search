@@ -12,50 +12,19 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 /**
  * this is a database.
  */
-@Database(entities = {Movie.class}, version = 1)
-public abstract class MovieDataBase extends RoomDatabase {
+@Database(entities = {Sonika_Movie.class}, version = 1)
+public abstract class Sonika_MovieDataBase extends RoomDatabase {
 
     /**
      * declaretion of the database class
      */
-    private static MovieDataBase instance;
+    private static Sonika_MovieDataBase instance_DB;
 
-    public abstract MovieDAO movieDAO();
-
-    /**
-     * @param context context
-     * @return instance
-     */
-    public static synchronized MovieDataBase getInstance(Context context) {
-
-        if (instance == null) {
-
-            instance =
-                    Room.databaseBuilder(context.getApplicationContext(),
-                                    MovieDataBase.class, "movie")
-                            .fallbackToDestructiveMigration()
-                            .allowMainThreadQueries()
-                            .addCallback(roomCallback)
-                            .build();
-        }
-        return instance;
-    }
-
-    /**
-     * callback method
-     */
-    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-            new PopulateDbAsyncTask(instance).execute();
-        }
-    };
-
+    public abstract Sonika_MovieDAO movieDAO();
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        PopulateDbAsyncTask(MovieDataBase instance) {
-            MovieDAO dao = instance.movieDAO();
+        PopulateDbAsyncTask(Sonika_MovieDataBase instance) {
+            Sonika_MovieDAO dao = instance.movieDAO();
         }
 
         /**
@@ -67,4 +36,38 @@ public abstract class MovieDataBase extends RoomDatabase {
             return null;
         }
     }
+
+
+
+    /**
+     * @param context context
+     * @return instance
+     */
+    public static synchronized Sonika_MovieDataBase getInstance(Context context) {
+
+        if (instance_DB == null) {
+
+            instance_DB =
+                    Room.databaseBuilder(context.getApplicationContext(),
+                                    Sonika_MovieDataBase.class, "movie")
+                            .fallbackToDestructiveMigration()
+                            .allowMainThreadQueries()
+                            .addCallback(roomCallback)
+                            .build();
+        }
+        return instance_DB;
+    }
+
+    /**
+     * callback method
+     */
+    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            new PopulateDbAsyncTask(instance_DB).execute();
+        }
+    };
+
 }
+
